@@ -3,8 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -30,30 +32,40 @@ namespace HranitelPro
 
         private void button1Click(object sender, EventArgs e)
         {
+            DataBase data = new DataBase();
+
+            // Получаем значение из поля PasswordField и LoginField
+            string password = passwordField.Text;
             String loginUser = loginField.Text;
-            String passwordUser = passwordField.Text;
 
-            DataBase dataBase = new DataBase();
-
-            DataTable table = new DataTable();
-
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-
-            MySqlCommand mySqlCommand = new MySqlCommand("SELECT * FROM `users` WHERE `username` = @uL AND `password` = @uP", dataBase.getConnection());
-
-            mySqlCommand.Parameters.Add("@uL", MySqlDbType.VarChar).Value = loginUser;
-            mySqlCommand.Parameters.Add("@uP", MySqlDbType.VarChar).Value = passwordUser;
-
-            adapter.SelectCommand = mySqlCommand;
-            adapter.Fill(table);
-
-            if (table.Rows.Count > 0)
+            // Преобразуем значение PasswordField в MD5 хэш-строку
+            using (MD5 md5 = MD5.Create())
             {
-                MessageBox.Show("Yes");
-            }
-            else
-            {
-                MessageBox.Show("No");
+                byte[] hash = md5.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < hash.Length; i++)
+                {
+                    sb.Append(hash[i].ToString("x2"));
+                }
+                string passwordHash = sb.ToString();
+
+                // Сверяем полученную хэш-строку со значением из базы данных
+                using (MySqlConnection connection = data.getConnection())
+                {
+                    MySqlCommand command = new MySqlCommand("SELECT * FROM users WHERE username = @username AND password = @passwordHash", connection);
+                    command.Parameters.AddWithValue("@passwordHash", passwordHash);
+                    command.Parameters.AddWithValue("@username", loginUser);
+                    connection.Open();
+                    MySqlDataReader reader = command.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        MessageBox.Show("Да");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Нет");
+                    }
+                }
             }
         }
 
@@ -75,6 +87,13 @@ namespace HranitelPro
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RegisterForm registerForm = new RegisterForm();
+            registerForm.Show();
         }
     }
 }
