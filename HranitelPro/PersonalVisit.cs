@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,8 +42,22 @@ namespace HranitelPro
             string serial = serialField.Text;
             string number = numberField.Text;
 
+            string fio = string.Join(" ", surname, name, patronymic);
+            string passport_data = string.Join(" ", serial, number);
 
+            if (validator.phone(phone))
+            {
 
+                DataBase dataBase = new DataBase();
+                dataBase.openConnection();
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
+                adapter.InsertCommand = new MySqlCommand("INSERT INTO visit_personal (fio, phone, email,date_of_birth,passport_data) VALUES (@fio, @phone, @email,@birthday,@passport_data)", dataBase.getConnection());
+                adapter.InsertCommand.Parameters.AddWithValue("@fio", fio);
+                adapter.InsertCommand.Parameters.AddWithValue("@phone", phone);
+                adapter.InsertCommand.Parameters.AddWithValue("@birthday", birthday);
+                adapter.InsertCommand.Parameters.AddWithValue("@email", email);
+                adapter.InsertCommand.Parameters.AddWithValue("@passport_data", passport_data);
+            }
         }
     }
 }

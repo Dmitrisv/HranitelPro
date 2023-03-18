@@ -53,5 +53,13 @@ namespace HranitelPro
                 // если все проверки прошли успешно, возвращаем true
                 return true;
             }
+        public static bool phone(string phoneNumber)
+        {
+            // используем регулярное выражение для проверки соответствия формату +X (XXX) XXX-XXXX
+            string pattern = @"^\+\d \(\d{3}\) \d{3}-\d{4}$";
+            return Regex.IsMatch(phoneNumber, pattern);
         }
+    }
+
+
 }
