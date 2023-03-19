@@ -78,12 +78,27 @@ namespace HranitelPro
             else
             {
                 DataBase dataBase = new DataBase();
+                #region Создание Purpose
+                MySqlCommand query = new MySqlCommand( "SELECT employee_code FROM subdivision_employee WHERE fio = @fio", dataBase.getConnection());
+                query.Parameters.AddWithValue("@fio", subdivisionFioField.Text);
+
+
+                // Открытие подключения
+                dataBase.openConnection();
+                // Выполнение запроса и получение результатов
+                MySqlDataReader reader = query.ExecuteReader();
+                string subdivisionEmployeeCode = "";
+                while ( reader.Read()) subdivisionEmployeeCode = reader["employee_code"].ToString();
+                purpose = dateFrom.Value.Day.ToString() + "/" + dateFrom.Value.Month.ToString() + "/" + dateFrom.Value.Year.ToString() + "_" + subdivisionEmployeeCode; 
+                dataBase.closeConnection();
+
+                #endregion
                 dataBase.openConnection();
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
                 adapter.InsertCommand = new MySqlCommand("INSERT INTO visit_personal (fio, phone_number, email,date_of_birth,passport_data, login, password, purpose) VALUES (@fio, @phone, @email,@birthday,@passport_data, @login, @password, @purpose)", dataBase.getConnection());
                 adapter.InsertCommand.Parameters.AddWithValue("@fio", fio);
                 adapter.InsertCommand.Parameters.AddWithValue("@phone", phone);
-                adapter.InsertCommand.Parameters.AddWithValue("@birthday", birthday);
+                adapter.InsertCommand.Parameters.AddWithValue("@birthday", birthDateField.Text);
                 adapter.InsertCommand.Parameters.AddWithValue("@email", email);
                 adapter.InsertCommand.Parameters.AddWithValue("@passport_data", passport_data);
                 adapter.InsertCommand.Parameters.AddWithValue("@login", HranitelPro.Properties.Settings.Default.UserName);

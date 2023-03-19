@@ -49,7 +49,7 @@ namespace HranitelPro
                 string passwordHash = sb.ToString();
 
                 HranitelPro.Properties.Settings.Default.UserName = loginUser;
-                HranitelPro.Properties.Settings.Default.UserPassword = passwordHash;
+                HranitelPro.Properties.Settings.Default.UserPassword = password;
 
                 // Сверяем полученную хэш-строку со значением из базы данных
                 using (MySqlConnection connection = data.getConnection())
