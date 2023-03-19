@@ -37,7 +37,6 @@ namespace HranitelPro
             // Получаем значение из поля PasswordField и LoginField
             string password = passwordField.Text;
             String loginUser = loginField.Text;
-
             // Преобразуем значение PasswordField в MD5 хэш-строку
             using (MD5 md5 = MD5.Create())
             {
@@ -49,6 +48,9 @@ namespace HranitelPro
                 }
                 string passwordHash = sb.ToString();
 
+                HranitelPro.Properties.Settings.Default.UserName = loginUser;
+                HranitelPro.Properties.Settings.Default.UserPassword = passwordHash;
+
                 // Сверяем полученную хэш-строку со значением из базы данных
                 using (MySqlConnection connection = data.getConnection())
                 {
@@ -59,7 +61,9 @@ namespace HranitelPro
                     MySqlDataReader reader = command.ExecuteReader();
                     if (reader.HasRows)
                     {
-                        MessageBox.Show("Да");
+                        MainForm mainForm = new MainForm();
+                        //Close();
+                        mainForm.Show();
                     }
                     else
                     {

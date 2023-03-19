@@ -21,5 +21,12 @@ namespace HranitelPro
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            PersonalVisit personalVisit = new PersonalVisit();
+            this.Close();
+            personalVisit.Show();
+        }
     }
 }

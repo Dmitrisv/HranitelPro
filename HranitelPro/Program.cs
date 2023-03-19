@@ -16,7 +16,7 @@ namespace HranitelPro
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PersonalVisit());
+            Application.Run(new LoginForm());
         }
     }
 }

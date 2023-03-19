@@ -54,7 +54,7 @@
             this.birthDateField = new System.Windows.Forms.DateTimePicker();
             this.numberField = new System.Windows.Forms.TextBox();
             this.serialField = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.purposeField = new System.Windows.Forms.TextBox();
             this.organizationField = new System.Windows.Forms.TextBox();
             this.emailField = new System.Windows.Forms.TextBox();
             this.phoneField = new System.Windows.Forms.TextBox();
@@ -68,6 +68,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.surnameField = new System.Windows.Forms.TextBox();
             this.submitButton = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -304,12 +305,12 @@
             this.serialField.Size = new System.Drawing.Size(132, 20);
             this.serialField.TabIndex = 11;
             // 
-            // textBox8
+            // purposeField
             // 
-            this.textBox8.Location = new System.Drawing.Point(325, 54);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(132, 20);
-            this.textBox8.TabIndex = 10;
+            this.purposeField.Location = new System.Drawing.Point(325, 54);
+            this.purposeField.Name = "purposeField";
+            this.purposeField.Size = new System.Drawing.Size(132, 20);
+            this.purposeField.TabIndex = 10;
             // 
             // organizationField
             // 
@@ -389,7 +390,7 @@
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.numberField);
             this.panel3.Controls.Add(this.serialField);
-            this.panel3.Controls.Add(this.textBox8);
+            this.panel3.Controls.Add(this.purposeField);
             this.panel3.Controls.Add(this.organizationField);
             this.panel3.Controls.Add(this.emailField);
             this.panel3.Controls.Add(this.phoneField);
@@ -435,11 +436,22 @@
             this.submitButton.UseVisualStyleBackColor = true;
             this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(711, 1);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(21, 23);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "X";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // PersonalVisit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(733, 501);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.clearForm);
             this.Controls.Add(this.panel1);
@@ -449,6 +461,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PersonalVisit";
             this.Text = "Form1";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PersonalVisit_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PersonalVisit_MouseMove);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -491,7 +505,7 @@
         private System.Windows.Forms.DateTimePicker birthDateField;
         private System.Windows.Forms.TextBox numberField;
         private System.Windows.Forms.TextBox serialField;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox purposeField;
         private System.Windows.Forms.TextBox organizationField;
         private System.Windows.Forms.TextBox emailField;
         private System.Windows.Forms.TextBox phoneField;
@@ -505,5 +519,6 @@
         private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.Button uploadImgBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button2;
     }
 }

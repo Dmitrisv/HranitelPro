@@ -9,7 +9,7 @@ namespace HranitelPro
 {
     public class DataBase
     {
-        MySqlConnection connection = new MySqlConnection("server=127.0.0.1;port=3306;username=root;database=HranitelPro;");
+        MySqlConnection connection = new MySqlConnection("server=127.0.0.1;port=3306;username=root;password=root;database=HranitelPro;");
 
         public void openConnection()
         {
