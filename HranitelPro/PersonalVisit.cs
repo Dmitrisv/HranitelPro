@@ -51,12 +51,22 @@ namespace HranitelPro
                 DataBase dataBase = new DataBase();
                 dataBase.openConnection();
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
-                adapter.InsertCommand = new MySqlCommand("INSERT INTO visit_personal (fio, phone, email,date_of_birth,passport_data) VALUES (@fio, @phone, @email,@birthday,@passport_data)", dataBase.getConnection());
+                adapter.InsertCommand = new MySqlCommand("INSERT INTO visit_personal (fio, phone_number, email,date_of_birth,passport_data) VALUES (@fio, @phone, @email,@birthday,@passport_data)", dataBase.getConnection());
                 adapter.InsertCommand.Parameters.AddWithValue("@fio", fio);
                 adapter.InsertCommand.Parameters.AddWithValue("@phone", phone);
                 adapter.InsertCommand.Parameters.AddWithValue("@birthday", birthday);
                 adapter.InsertCommand.Parameters.AddWithValue("@email", email);
                 adapter.InsertCommand.Parameters.AddWithValue("@passport_data", passport_data);
+                adapter.InsertCommand.ExecuteNonQuery();
+
+                dataBase.closeConnection();
+                MessageBox.Show("Запись успешно занесена в базу данных");
+
+
+            }
+            else
+            {
+                MessageBox.Show("Не правильный формат телефона");
             }
         }
     }
