@@ -20,39 +20,39 @@ namespace HranitelPro
 
         public static bool password(string password)
         {
-                // проверяем, что длина пароля не меньше 8 символов
-                if (password.Length < 8)
-                {
-                    return false;
-                }
-
-                // проверяем, что есть хотя бы одна цифра
-                if (!password.Any(c => char.IsDigit(c)))
-                {
-                    return false;
-                }
-
-                // проверяем, что есть хотя бы одна буква в верхнем регистре
-                if (!password.Any(c => char.IsUpper(c)))
-                {
-                    return false;
-                }
-
-                // проверяем, что есть хотя бы одна буква в нижнем регистре
-                if (!password.Any(c => char.IsLower(c)))
-                {
-                    return false;
-                }
-
-                // проверяем, что есть хотя бы один спецсимвол
-                if (!password.Any(c => !char.IsLetterOrDigit(c)))
-                {
-                    return false;
-                }
-
-                // если все проверки прошли успешно, возвращаем true
-                return true;
+            // проверяем, что длина пароля не меньше 8 символов
+            if (password.Length < 8)
+            {
+                return false;
             }
+
+            // проверяем, что есть хотя бы одна цифра
+            if (!password.Any(c => char.IsDigit(c)))
+            {
+                return false;
+            }
+
+            // проверяем, что есть хотя бы одна буква в верхнем регистре
+            if (!password.Any(c => char.IsUpper(c)))
+            {
+                return false;
+            }
+
+            // проверяем, что есть хотя бы одна буква в нижнем регистре
+            if (!password.Any(c => char.IsLower(c)))
+            {
+                return false;
+            }
+
+            // проверяем, что есть хотя бы один спецсимвол
+            if (!password.Any(c => !char.IsLetterOrDigit(c)))
+            {
+                return false;
+            }
+
+            // если все проверки прошли успешно, возвращаем true
+            return true;
+        }
         public static bool phone(string phoneNumber)
         {
             // используем регулярное выражение для проверки соответствия формату +X (XXX) XXX-XXXX
@@ -79,7 +79,28 @@ namespace HranitelPro
 
             return true;
         }
+        public static bool serial(string serial)
+        {
+            if (Int32.TryParse(serial, out int value) && value >= 0 && value <= 9999)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public static bool number(string number)
+        {
+            if (Int32.TryParse(number, out int value) && value >= 0 && value <= 999999)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
-
 
 }

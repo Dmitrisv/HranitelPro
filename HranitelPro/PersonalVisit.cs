@@ -48,35 +48,50 @@ namespace HranitelPro
             string fio = string.Join(" ", surname, name, patronymic);
             string passport_data = string.Join(" ", serial, number);
 
-            if (validator.phone(phone))
+            bool isPhoneValid = validator.phone(phone);
+            bool isBirthdayValid = validator.date(birthday);
+            bool isSerialValid = validator.serial(serial);
+            bool isNumberValid = validator.number(number);
+            bool isEmailVaild = validator.email(email); 
+
+            if (!isPhoneValid)
             {
-                if (validator.date(birthday))
-                {
-                    DataBase dataBase = new DataBase();
-                    dataBase.openConnection();
-                    MySqlDataAdapter adapter = new MySqlDataAdapter();
-                    adapter.InsertCommand = new MySqlCommand("INSERT INTO visit_personal (fio, phone_number, email,date_of_birth,passport_data, login, password, purpose) VALUES (@fio, @phone, @email,@birthday,@passport_data, @login, @password, @purpose)", dataBase.getConnection());
-                    adapter.InsertCommand.Parameters.AddWithValue("@fio", fio);
-                    adapter.InsertCommand.Parameters.AddWithValue("@phone", phone);
-                    adapter.InsertCommand.Parameters.AddWithValue("@birthday", birthday);
-                    adapter.InsertCommand.Parameters.AddWithValue("@email", email);
-                    adapter.InsertCommand.Parameters.AddWithValue("@passport_data", passport_data);
-                    adapter.InsertCommand.Parameters.AddWithValue("@login", HranitelPro.Properties.Settings.Default.UserName);
-                    adapter.InsertCommand.Parameters.AddWithValue("@password", HranitelPro.Properties.Settings.Default.UserPassword);
-                    adapter.InsertCommand.Parameters.AddWithValue("@purpose", purpose);
-                    adapter.InsertCommand.ExecuteNonQuery();
-                    //+7 (000) 000-0000
-                    dataBase.closeConnection();
-                    MessageBox.Show("Запись успешно занесена в базу данных");
-                }
-                else
-                {
-                    MessageBox.Show("Вы младше 16 лет");
-                }
+                MessageBox.Show("Не верный формат телефона");
+            }
+            else if (!isBirthdayValid)
+            {
+                MessageBox.Show("Вы младше 16 лет");
+            }
+            else if (!isSerialValid)
+            {
+                MessageBox.Show("Не верный серия пасспорта");
+            }
+            else if (!isNumberValid)
+            {
+                MessageBox.Show("Не верный номер пасспорта");
+            }
+            else if (!isEmailVaild)
+            {
+                MessageBox.Show("Не верный формат почты");
             }
             else
             {
-                MessageBox.Show("Не правильный формат телефона");
+                DataBase dataBase = new DataBase();
+                dataBase.openConnection();
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
+                adapter.InsertCommand = new MySqlCommand("INSERT INTO visit_personal (fio, phone_number, email,date_of_birth,passport_data, login, password, purpose) VALUES (@fio, @phone, @email,@birthday,@passport_data, @login, @password, @purpose)", dataBase.getConnection());
+                adapter.InsertCommand.Parameters.AddWithValue("@fio", fio);
+                adapter.InsertCommand.Parameters.AddWithValue("@phone", phone);
+                adapter.InsertCommand.Parameters.AddWithValue("@birthday", birthday);
+                adapter.InsertCommand.Parameters.AddWithValue("@email", email);
+                adapter.InsertCommand.Parameters.AddWithValue("@passport_data", passport_data);
+                adapter.InsertCommand.Parameters.AddWithValue("@login", HranitelPro.Properties.Settings.Default.UserName);
+                adapter.InsertCommand.Parameters.AddWithValue("@password", HranitelPro.Properties.Settings.Default.UserPassword);
+                adapter.InsertCommand.Parameters.AddWithValue("@purpose", purpose);
+                adapter.InsertCommand.ExecuteNonQuery();
+                //+7 (000) 000-0000
+                dataBase.closeConnection();
+                MessageBox.Show("Запись успешно занесена в базу данных");
             }
         }
 
