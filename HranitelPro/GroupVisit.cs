@@ -106,7 +106,15 @@ namespace HranitelPro
 
         private void clearForm_Click(object sender, EventArgs e)
         {
-
+            foreach (Control x in this.Controls)
+            {
+                if (x is Panel)
+                    foreach (Control x2 in x.Controls)
+                        if (x2 is TextBox)
+                        {
+                            ((TextBox)x2).Text = String.Empty;
+                        }
+            }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -172,19 +180,20 @@ namespace HranitelPro
 
             var idText = new Label();
             idText.Text = "1";
-            panel4.Controls.Add(idText);
-            idText.Location = new Point(15, 54);
+            panel5.Controls.Add(idText);
+            idText.Location = new Point(-3, 0);
             idText.Width = 10;
 
             var fioText = new Label();
             fioText.Text = "Хохлов Андрей Радионович";
-            panel4.Controls.Add(fioText);
-            fioText.Location = new Point(39, 54);
+            panel5.Controls.Add(fioText);
+            fioText.Location = new Point(22, 0);
+            fioText.Width = 180;
 
             var contactText = new Label();
             contactText.Text = "+7 (999) 999-34-34";
-            panel4.Controls.Add(contactText);
-            contactText.Location = new Point(129, 54);
+            panel5.Controls.Add(contactText);
+            contactText.Location = new Point(204, 0);
         }
 
 
@@ -240,6 +249,35 @@ namespace HranitelPro
                     id = id,
                 });
                 id++;
+            }
+        }
+
+        public void AppendTable(List<Visitor> visitor)
+        {
+            foreach (Control x in panel5.Controls)
+            {
+                if (x is Label)
+                    Controls.Remove(x);
+            }
+
+            for (var i = 0; i < visitor.Count; i++)
+            {
+                var idText = new Label();
+                idText.Text = visitor[i].id.ToString();
+                panel4.Controls.Add(idText);
+                idText.Location = new Point(-3, (0 + 18 * i));
+                idText.Width = 10;
+
+                var fioText = new Label();
+                fioText.Text = visitor[i].fio;
+                panel4.Controls.Add(fioText);
+                fioText.Location = new Point(22, (0 + 18 * i));
+                fioText.Width = 180;
+
+                var contactText = new Label();
+                contactText.Text = visitor[i].contacts;
+                panel4.Controls.Add(contactText);
+                contactText.Location = new Point(204, (0 + 18 * i));
             }
         }
     }

@@ -71,10 +71,14 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // numberField
@@ -338,7 +342,7 @@
             // clearForm
             // 
             this.clearForm.AutoSize = true;
-            this.clearForm.Location = new System.Drawing.Point(512, 453);
+            this.clearForm.Location = new System.Drawing.Point(688, 448);
             this.clearForm.Name = "clearForm";
             this.clearForm.Size = new System.Drawing.Size(90, 13);
             this.clearForm.TabIndex = 20;
@@ -356,7 +360,7 @@
             this.panel1.Controls.Add(this.dateFrom);
             this.panel1.Location = new System.Drawing.Point(33, 29);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(315, 178);
+            this.panel1.Size = new System.Drawing.Size(474, 178);
             this.panel1.TabIndex = 16;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -400,7 +404,7 @@
             this.panel2.Controls.Add(this.subdivisionList);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Location = new System.Drawing.Point(358, 29);
+            this.panel2.Location = new System.Drawing.Point(529, 29);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(438, 178);
             this.panel2.TabIndex = 17;
@@ -424,7 +428,7 @@
             // 
             // submitButton
             // 
-            this.submitButton.Location = new System.Drawing.Point(608, 448);
+            this.submitButton.Location = new System.Drawing.Point(797, 443);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(170, 23);
             this.submitButton.TabIndex = 19;
@@ -434,19 +438,21 @@
             // 
             // panel4
             // 
+            this.panel4.AutoScroll = true;
+            this.panel4.Controls.Add(this.label15);
+            this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.label20);
             this.panel4.Controls.Add(this.label19);
             this.panel4.Controls.Add(this.label17);
-            this.panel4.Controls.Add(this.label15);
             this.panel4.Location = new System.Drawing.Point(529, 213);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(267, 188);
+            this.panel4.Size = new System.Drawing.Size(438, 188);
             this.panel4.TabIndex = 18;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(177, 35);
+            this.label20.Location = new System.Drawing.Point(348, 35);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(72, 13);
             this.label20.TabIndex = 3;
@@ -455,7 +461,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(93, 35);
+            this.label19.Location = new System.Drawing.Point(222, 35);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(56, 13);
             this.label19.TabIndex = 2;
@@ -479,11 +485,38 @@
             this.label15.TabIndex = 0;
             this.label15.Text = "№";
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.label22);
+            this.panel5.Controls.Add(this.label21);
+            this.panel5.Location = new System.Drawing.Point(18, 51);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(402, 117);
+            this.panel5.TabIndex = 4;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(-3, -3);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(18, 13);
+            this.label21.TabIndex = 1;
+            this.label21.Text = "№";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(-3, 18);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(18, 13);
+            this.label22.TabIndex = 2;
+            this.label22.Text = "№";
+            // 
             // GroupVisit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(819, 501);
+            this.ClientSize = new System.Drawing.Size(1015, 501);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel3);
@@ -503,6 +536,8 @@
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -553,5 +588,8 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
     }
 }
