@@ -81,7 +81,7 @@ namespace HranitelPro
                 DataBase dataBase = new DataBase();
                 #region Создание Purpose
                 MySqlCommand query = new MySqlCommand( "SELECT employee_code FROM subdivision_employee WHERE fio = @fio", dataBase.getConnection());
-                query.Parameters.AddWithValue("@fio", subdivisionList.SelectedValue.ToString());
+                query.Parameters.AddWithValue("@fio", comboBox1.SelectedValue.ToString());
 
 
                 // Открытие подключения

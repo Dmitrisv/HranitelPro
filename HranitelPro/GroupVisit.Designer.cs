@@ -72,13 +72,10 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // numberField
@@ -417,6 +414,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(364, 21);
             this.comboBox1.TabIndex = 10;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // subdivisionList
             // 
@@ -425,6 +423,7 @@
             this.subdivisionList.Name = "subdivisionList";
             this.subdivisionList.Size = new System.Drawing.Size(400, 21);
             this.subdivisionList.TabIndex = 9;
+            this.subdivisionList.SelectedIndexChanged += new System.EventHandler(this.subdivisionList_SelectedIndexChanged);
             // 
             // submitButton
             // 
@@ -487,30 +486,10 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.label22);
-            this.panel5.Controls.Add(this.label21);
             this.panel5.Location = new System.Drawing.Point(18, 51);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(402, 117);
             this.panel5.TabIndex = 4;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(-3, -3);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(18, 13);
-            this.label21.TabIndex = 1;
-            this.label21.Text = "№";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(-3, 18);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(18, 13);
-            this.label22.TabIndex = 2;
-            this.label22.Text = "№";
             // 
             // GroupVisit
             // 
@@ -536,8 +515,6 @@
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -589,7 +566,5 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label21;
     }
 }
