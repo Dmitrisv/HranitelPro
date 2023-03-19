@@ -238,6 +238,10 @@ namespace HranitelPro
 
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
+
+            comboBox1.Items.Clear();
+            comboBox1.Text = "";
+
             string name = subdivisionList.SelectedItem.ToString();
 
             DataBase dataBase = new DataBase();
