@@ -22,10 +22,12 @@ namespace HranitelPro
         {
             foreach (Control x in this.Controls)
             {
-                if (x is TextBox)
-                {
-                    ((TextBox)x).Text = String.Empty;
-                }
+                if (x is Panel)
+                    foreach (Control x2 in x.Controls)
+                        if (x2 is TextBox)
+                        {
+                            ((TextBox)x2).Text = String.Empty;
+                        }
             }
         }
 
