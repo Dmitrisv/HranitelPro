@@ -81,7 +81,7 @@ namespace HranitelPro
                 DataBase dataBase = new DataBase();
                 #region Создание Purpose
                 MySqlCommand query = new MySqlCommand( "SELECT employee_code FROM subdivision_employee WHERE fio = @fio", dataBase.getConnection());
-                query.Parameters.AddWithValue("@fio", subdivisionFioField.Text);
+                query.Parameters.AddWithValue("@fio", subdivisionList.SelectedValue.ToString());
 
 
                 // Открытие подключения
@@ -175,8 +175,9 @@ namespace HranitelPro
         private void uploadImgBtn_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Файлы формата JPG (*.jpg;)|*.jpg;"; // фильтр для выбора изображений
-            openFileDialog.Title = "Выберите изображение"; // заголовок диалогового окна
+            openFileDialog.Multiselect = false;
+            openFileDialog.Filter = "Файлы формата JPG (*.jpg;)|*.jpg;"; 
+            openFileDialog.Title = "Выберите изображение"; 
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -206,6 +207,53 @@ namespace HranitelPro
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openPDF = new OpenFileDialog();
+            openPDF.Multiselect = false;
+            openPDF.Filter = "Файлы формата PDF (*.pdf;)|*.pdf;";
+            openPDF.Title = "Выберите файл"; 
+
+            if (openPDF.ShowDialog() == DialogResult.OK)
+            {
+                if (openPDF.FileName != null)
+                {
+                    button1.Text = "Файл прикреплен";
+                }
+            }
+
+        }
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (subdivisionList.SelectedItem != null)          
+            {
+                comboBox1.Text = "";
+            }
+
+
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            string name = subdivisionList.SelectedItem.ToString();
+
+            DataBase dataBase = new DataBase();
+            dataBase.openConnection();
+
+            string query = "SELECT subdivision_employee.* FROM subdivision_employee INNER JOIN subdivision ON subdivision_employee.subdivision_id = subdivision.id WHERE subdivision.name = @name";
+
+            MySqlCommand command = new MySqlCommand(query, dataBase.getConnection());
+            command.Parameters.AddWithValue("@name", name);
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                comboBox1.Items.Add(reader["fio"].ToString());
+            }
         }
     }
 }

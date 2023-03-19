@@ -32,8 +32,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label17 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.clearForm = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,8 +40,8 @@
             this.dateTo = new System.Windows.Forms.DateTimePicker();
             this.dateFrom = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.subdivisionList = new System.Windows.Forms.ComboBox();
-            this.subdivisionFioField = new System.Windows.Forms.TextBox();
             this.submitButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.surnameField = new System.Windows.Forms.TextBox();
@@ -69,7 +67,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.numberField = new System.Windows.Forms.MaskedTextBox();
             this.serialField = new System.Windows.Forms.MaskedTextBox();
-            this.panel5.SuspendLayout();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -111,23 +109,6 @@
             this.label6.Size = new System.Drawing.Size(41, 13);
             this.label6.TabIndex = 8;
             this.label6.Text = "ФИО*:";
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.label17);
-            this.panel5.Location = new System.Drawing.Point(25, 413);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(315, 53);
-            this.panel5.TabIndex = 12;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(33, 28);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(118, 13);
-            this.label17.TabIndex = 19;
-            this.label17.Text = "ПРИКРЕПИТЬ ФАЙЛ";
             // 
             // label3
             // 
@@ -198,14 +179,22 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.comboBox1);
             this.panel2.Controls.Add(this.subdivisionList);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.subdivisionFioField);
             this.panel2.Location = new System.Drawing.Point(350, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(341, 178);
             this.panel2.TabIndex = 9;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(20, 112);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(276, 21);
+            this.comboBox1.TabIndex = 10;
             // 
             // subdivisionList
             // 
@@ -214,13 +203,8 @@
             this.subdivisionList.Name = "subdivisionList";
             this.subdivisionList.Size = new System.Drawing.Size(308, 21);
             this.subdivisionList.TabIndex = 9;
-            // 
-            // subdivisionFioField
-            // 
-            this.subdivisionFioField.Location = new System.Drawing.Point(20, 112);
-            this.subdivisionFioField.Name = "subdivisionFioField";
-            this.subdivisionFioField.Size = new System.Drawing.Size(279, 20);
-            this.subdivisionFioField.TabIndex = 3;
+            this.subdivisionList.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
+
             // 
             // submitButton
             // 
@@ -455,13 +439,23 @@
             this.serialField.Size = new System.Drawing.Size(132, 20);
             this.serialField.TabIndex = 12;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(37, 436);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(161, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Прикрепить файл";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // PersonalVisit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(733, 501);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.panel5);
             this.Controls.Add(this.clearForm);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
@@ -473,8 +467,6 @@
             this.Load += new System.EventHandler(this.PersonalVisit_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PersonalVisit_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PersonalVisit_MouseMove);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -493,8 +485,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label clearForm;
         private System.Windows.Forms.Label label1;
@@ -502,7 +492,6 @@
         private System.Windows.Forms.DateTimePicker dateTo;
         private System.Windows.Forms.DateTimePicker dateFrom;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox subdivisionFioField;
         private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox surnameField;
@@ -530,5 +519,7 @@
         private System.Windows.Forms.MaskedTextBox serialField;
         private System.Windows.Forms.ComboBox subdivisionList;
         private System.Windows.Forms.ComboBox goalList;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
