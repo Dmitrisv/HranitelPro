@@ -67,11 +67,11 @@
             this.subdivisionList = new System.Windows.Forms.ComboBox();
             this.submitButton = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -448,6 +448,23 @@
             this.panel4.Size = new System.Drawing.Size(438, 188);
             this.panel4.TabIndex = 18;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(15, 35);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(18, 13);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "№";
+            // 
+            // panel5
+            // 
+            this.panel5.Location = new System.Drawing.Point(18, 51);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(402, 117);
+            this.panel5.TabIndex = 4;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
+            // 
             // label20
             // 
             this.label20.AutoSize = true;
@@ -474,22 +491,6 @@
             this.label17.Size = new System.Drawing.Size(34, 13);
             this.label17.TabIndex = 1;
             this.label17.Text = "ФИО";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(15, 35);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(18, 13);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "№";
-            // 
-            // panel5
-            // 
-            this.panel5.Location = new System.Drawing.Point(18, 51);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(402, 117);
-            this.panel5.TabIndex = 4;
             // 
             // GroupVisit
             // 

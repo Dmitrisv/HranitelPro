@@ -192,7 +192,7 @@ namespace HranitelPro
 
                 #region Создание Purpose
                 MySqlCommand query = new MySqlCommand("SELECT employee_code FROM subdivision_employee WHERE fio = @fio", dataBase.getConnection());
-                query.Parameters.AddWithValue("@fio", comboBox1.SelectedText);
+                query.Parameters.AddWithValue("@fio", comboBox1.SelectedItem.ToString());
 
 
                 // Открытие подключения
@@ -205,7 +205,7 @@ namespace HranitelPro
                 dataBase.closeConnection();
                 #endregion
                 #region Создание group_name
-                string input = comboBox1.SelectedText;
+                string input = comboBox1.SelectedItem.ToString();
                 string pattern2 = @"^\w+"; // Первое слово начинается с начала строки и состоит из одного или более символов слова (буквы, цифры, символ подчеркивания)
 
                 Match match2 = Regex.Match(input, pattern2);
@@ -334,6 +334,11 @@ namespace HranitelPro
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
         {
 
         }
