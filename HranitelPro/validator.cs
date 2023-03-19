@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -100,6 +102,33 @@ namespace HranitelPro
             {
                 return false;
             }
+        }
+
+        public static bool photo(string filePath)
+        {
+            // проверяем, выбрана ли фотография
+            if (string.IsNullOrEmpty(filePath))
+            {
+                return true; // поле необязательное, поэтому возвращаем true
+            }
+
+            // проверяем размер файла
+            FileInfo fileInfo = new FileInfo(filePath);
+            if (fileInfo.Length > 4 * 1024 * 1024)
+            {
+                return false;
+            }
+
+            // проверяем соотношение сторон
+            Image image = Image.FromFile(filePath);
+            double aspectRatio = (double)image.Width / image.Height;
+            if (Math.Abs(aspectRatio - 0.75) > 0.01) // здесь 0.75 - соотношение сторон 3:4, допускается погрешность в 1%
+            {
+                return false;
+            }
+
+            // все проверки пройдены успешно
+            return true;
         }
     }
 

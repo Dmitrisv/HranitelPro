@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -155,6 +156,41 @@ namespace HranitelPro
         private void goalList_SelectedIndexChanged(object sender, EventArgs e)
         {
             //goalList.Items.Add()
+        }
+        private void uploadImgBtn_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Файлы формата JPG (*.jpg;)|*.jpg;"; // фильтр для выбора изображений
+            openFileDialog.Title = "Выберите изображение"; // заголовок диалогового окна
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    bool isPhotoValid = validator.photo(openFileDialog.FileName);
+
+                    if (!isPhotoValid)
+                    {
+                        MessageBox.Show("Фотография не соотвествует тербованиям");
+                    }
+                    else
+                    {
+                        pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                        pictureBox1.Image = new Bitmap(openFileDialog.FileName);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка загрузки изображения: " + ex.Message);
+                }
+            }
+        }
+
+
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

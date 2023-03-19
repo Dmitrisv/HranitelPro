@@ -38,9 +38,11 @@
             this.clearForm = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.goalList = new System.Windows.Forms.ComboBox();
             this.dateTo = new System.Windows.Forms.DateTimePicker();
             this.dateFrom = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.subdivisionList = new System.Windows.Forms.ComboBox();
             this.subdivisionFioField = new System.Windows.Forms.TextBox();
             this.submitButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -65,10 +67,8 @@
             this.uploadImgBtn = new System.Windows.Forms.Button();
             this.phoneField = new System.Windows.Forms.MaskedTextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.serialField = new System.Windows.Forms.MaskedTextBox();
             this.numberField = new System.Windows.Forms.MaskedTextBox();
-            this.subdivisionList = new System.Windows.Forms.ComboBox();
-            this.goalList = new System.Windows.Forms.ComboBox();
+            this.serialField = new System.Windows.Forms.MaskedTextBox();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -171,6 +171,15 @@
             this.panel1.Size = new System.Drawing.Size(315, 178);
             this.panel1.TabIndex = 8;
             // 
+            // goalList
+            // 
+            this.goalList.FormattingEnabled = true;
+            this.goalList.Location = new System.Drawing.Point(35, 137);
+            this.goalList.Name = "goalList";
+            this.goalList.Size = new System.Drawing.Size(254, 21);
+            this.goalList.TabIndex = 10;
+            this.goalList.SelectedIndexChanged += new System.EventHandler(this.goalList_SelectedIndexChanged);
+            // 
             // dateTo
             // 
             this.dateTo.Location = new System.Drawing.Point(187, 70);
@@ -197,6 +206,14 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(341, 178);
             this.panel2.TabIndex = 9;
+            // 
+            // subdivisionList
+            // 
+            this.subdivisionList.FormattingEnabled = true;
+            this.subdivisionList.Location = new System.Drawing.Point(20, 44);
+            this.subdivisionList.Name = "subdivisionList";
+            this.subdivisionList.Size = new System.Drawing.Size(308, 21);
+            this.subdivisionList.TabIndex = 9;
             // 
             // subdivisionFioField
             // 
@@ -373,6 +390,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(140, 106);
             this.pictureBox1.TabIndex = 25;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // uploadImgBtn
             // 
@@ -382,6 +400,7 @@
             this.uploadImgBtn.TabIndex = 26;
             this.uploadImgBtn.Text = "Загрузить фото";
             this.uploadImgBtn.UseVisualStyleBackColor = true;
+            this.uploadImgBtn.Click += new System.EventHandler(this.uploadImgBtn_Click);
             // 
             // phoneField
             // 
@@ -420,14 +439,6 @@
             this.panel3.Size = new System.Drawing.Size(666, 188);
             this.panel3.TabIndex = 10;
             // 
-            // serialField
-            // 
-            this.serialField.Location = new System.Drawing.Point(325, 105);
-            this.serialField.Mask = "####";
-            this.serialField.Name = "serialField";
-            this.serialField.Size = new System.Drawing.Size(132, 20);
-            this.serialField.TabIndex = 12;
-            // 
             // numberField
             // 
             this.numberField.Location = new System.Drawing.Point(325, 129);
@@ -436,22 +447,13 @@
             this.numberField.Size = new System.Drawing.Size(132, 20);
             this.numberField.TabIndex = 13;
             // 
-            // subdivisionList
+            // serialField
             // 
-            this.subdivisionList.FormattingEnabled = true;
-            this.subdivisionList.Location = new System.Drawing.Point(20, 44);
-            this.subdivisionList.Name = "subdivisionList";
-            this.subdivisionList.Size = new System.Drawing.Size(308, 21);
-            this.subdivisionList.TabIndex = 9;
-            // 
-            // goalList
-            // 
-            this.goalList.FormattingEnabled = true;
-            this.goalList.Location = new System.Drawing.Point(35, 137);
-            this.goalList.Name = "goalList";
-            this.goalList.Size = new System.Drawing.Size(254, 21);
-            this.goalList.TabIndex = 10;
-            this.goalList.SelectedIndexChanged += new System.EventHandler(this.goalList_SelectedIndexChanged);
+            this.serialField.Location = new System.Drawing.Point(325, 105);
+            this.serialField.Mask = "####";
+            this.serialField.Name = "serialField";
+            this.serialField.Size = new System.Drawing.Size(132, 20);
+            this.serialField.TabIndex = 12;
             // 
             // PersonalVisit
             // 
