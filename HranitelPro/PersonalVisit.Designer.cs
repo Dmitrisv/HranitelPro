@@ -43,7 +43,6 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.subdivisionList = new System.Windows.Forms.ComboBox();
             this.submitButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.surnameField = new System.Windows.Forms.TextBox();
             this.nameField = new System.Windows.Forms.TextBox();
             this.patronymicField = new System.Windows.Forms.TextBox();
@@ -82,6 +81,7 @@
             this.label2.Size = new System.Drawing.Size(19, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "по";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label4
             // 
@@ -91,6 +91,7 @@
             this.label4.Size = new System.Drawing.Size(96, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Цель посещения:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -100,6 +101,7 @@
             this.label5.Size = new System.Drawing.Size(90, 13);
             this.label5.TabIndex = 7;
             this.label5.Text = "Подразделение:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
@@ -109,6 +111,7 @@
             this.label6.Size = new System.Drawing.Size(41, 13);
             this.label6.TabIndex = 8;
             this.label6.Text = "ФИО*:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label3
             // 
@@ -118,6 +121,7 @@
             this.label3.Size = new System.Drawing.Size(124, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Срок действия заявки:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // clearForm
             // 
@@ -137,6 +141,7 @@
             this.label1.Size = new System.Drawing.Size(20, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "с*:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel1
             // 
@@ -151,6 +156,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(315, 178);
             this.panel1.TabIndex = 8;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // goalList
             // 
@@ -167,6 +173,7 @@
             this.dateTo.Name = "dateTo";
             this.dateTo.Size = new System.Drawing.Size(120, 20);
             this.dateTo.TabIndex = 1;
+            this.dateTo.ValueChanged += new System.EventHandler(this.dateTo_ValueChanged);
             // 
             // dateFrom
             // 
@@ -176,6 +183,7 @@
             this.dateFrom.Name = "dateFrom";
             this.dateFrom.Size = new System.Drawing.Size(116, 20);
             this.dateFrom.TabIndex = 0;
+            this.dateFrom.ValueChanged += new System.EventHandler(this.dateFrom_ValueChanged);
             // 
             // panel2
             // 
@@ -187,6 +195,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(341, 178);
             this.panel2.TabIndex = 9;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // comboBox1
             // 
@@ -195,6 +204,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(276, 21);
             this.comboBox1.TabIndex = 10;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_2);
             // 
             // subdivisionList
             // 
@@ -204,7 +214,6 @@
             this.subdivisionList.Size = new System.Drawing.Size(308, 21);
             this.subdivisionList.TabIndex = 9;
             this.subdivisionList.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
-
             // 
             // submitButton
             // 
@@ -216,22 +225,13 @@
             this.submitButton.UseVisualStyleBackColor = true;
             this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(711, 1);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(21, 23);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "X";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
-            // 
             // surnameField
             // 
             this.surnameField.Location = new System.Drawing.Point(88, 25);
             this.surnameField.Name = "surnameField";
             this.surnameField.Size = new System.Drawing.Size(132, 20);
             this.surnameField.TabIndex = 4;
+            this.surnameField.TextChanged += new System.EventHandler(this.surnameField_TextChanged);
             // 
             // nameField
             // 
@@ -239,6 +239,7 @@
             this.nameField.Name = "nameField";
             this.nameField.Size = new System.Drawing.Size(132, 20);
             this.nameField.TabIndex = 5;
+            this.nameField.TextChanged += new System.EventHandler(this.nameField_TextChanged);
             // 
             // patronymicField
             // 
@@ -246,6 +247,7 @@
             this.patronymicField.Name = "patronymicField";
             this.patronymicField.Size = new System.Drawing.Size(132, 20);
             this.patronymicField.TabIndex = 6;
+            this.patronymicField.TextChanged += new System.EventHandler(this.patronymicField_TextChanged);
             // 
             // emailField
             // 
@@ -253,6 +255,7 @@
             this.emailField.Name = "emailField";
             this.emailField.Size = new System.Drawing.Size(132, 20);
             this.emailField.TabIndex = 8;
+            this.emailField.TextChanged += new System.EventHandler(this.emailField_TextChanged);
             // 
             // organizationField
             // 
@@ -260,6 +263,7 @@
             this.organizationField.Name = "organizationField";
             this.organizationField.Size = new System.Drawing.Size(132, 20);
             this.organizationField.TabIndex = 9;
+            this.organizationField.TextChanged += new System.EventHandler(this.organizationField_TextChanged);
             // 
             // purposeField
             // 
@@ -267,6 +271,7 @@
             this.purposeField.Name = "purposeField";
             this.purposeField.Size = new System.Drawing.Size(132, 20);
             this.purposeField.TabIndex = 10;
+            this.purposeField.TextChanged += new System.EventHandler(this.purposeField_TextChanged);
             // 
             // label7
             // 
@@ -276,6 +281,7 @@
             this.label7.Size = new System.Drawing.Size(63, 13);
             this.label7.TabIndex = 14;
             this.label7.Text = "Фамилия*:";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
@@ -285,6 +291,7 @@
             this.label8.Size = new System.Drawing.Size(36, 13);
             this.label8.TabIndex = 15;
             this.label8.Text = "Имя*:";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
@@ -294,6 +301,7 @@
             this.label9.Size = new System.Drawing.Size(61, 13);
             this.label9.TabIndex = 16;
             this.label9.Text = "Отчество*:";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label10
             // 
@@ -303,6 +311,7 @@
             this.label10.Size = new System.Drawing.Size(55, 13);
             this.label10.TabIndex = 17;
             this.label10.Text = "Телефон:";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // label11
             // 
@@ -312,6 +321,7 @@
             this.label11.Size = new System.Drawing.Size(38, 13);
             this.label11.TabIndex = 18;
             this.label11.Text = "E-mail:";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // label12
             // 
@@ -321,6 +331,7 @@
             this.label12.Size = new System.Drawing.Size(73, 13);
             this.label12.TabIndex = 19;
             this.label12.Text = "Примечание:";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // label13
             // 
@@ -330,6 +341,7 @@
             this.label13.Size = new System.Drawing.Size(77, 13);
             this.label13.TabIndex = 20;
             this.label13.Text = "Организация:";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // label14
             // 
@@ -339,6 +351,7 @@
             this.label14.Size = new System.Drawing.Size(41, 13);
             this.label14.TabIndex = 21;
             this.label14.Text = "Серия:";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
             // label16
             // 
@@ -348,6 +361,7 @@
             this.label16.Size = new System.Drawing.Size(44, 13);
             this.label16.TabIndex = 23;
             this.label16.Text = "Номер:";
+            this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
             // birthDateField
             // 
@@ -357,6 +371,7 @@
             this.birthDateField.Name = "birthDateField";
             this.birthDateField.Size = new System.Drawing.Size(132, 20);
             this.birthDateField.TabIndex = 11;
+            this.birthDateField.ValueChanged += new System.EventHandler(this.birthDateField_ValueChanged);
             // 
             // label18
             // 
@@ -366,6 +381,7 @@
             this.label18.Size = new System.Drawing.Size(89, 13);
             this.label18.TabIndex = 24;
             this.label18.Text = "Дата рождения:";
+            this.label18.Click += new System.EventHandler(this.label18_Click);
             // 
             // pictureBox1
             // 
@@ -393,6 +409,7 @@
             this.phoneField.Name = "phoneField";
             this.phoneField.Size = new System.Drawing.Size(132, 20);
             this.phoneField.TabIndex = 7;
+            this.phoneField.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.phoneField_MaskInputRejected);
             // 
             // panel3
             // 
@@ -422,6 +439,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(666, 188);
             this.panel3.TabIndex = 10;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // numberField
             // 
@@ -430,6 +448,7 @@
             this.numberField.Name = "numberField";
             this.numberField.Size = new System.Drawing.Size(132, 20);
             this.numberField.TabIndex = 13;
+            this.numberField.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.numberField_MaskInputRejected);
             // 
             // serialField
             // 
@@ -438,10 +457,11 @@
             this.serialField.Name = "serialField";
             this.serialField.Size = new System.Drawing.Size(132, 20);
             this.serialField.TabIndex = 12;
+            this.serialField.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.serialField_MaskInputRejected);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(37, 436);
+            this.button1.Location = new System.Drawing.Point(45, 431);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(161, 23);
             this.button1.TabIndex = 0;
@@ -455,15 +475,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(733, 501);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.clearForm);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.panel3);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "PersonalVisit";
-            this.Text = "Form1";
+            this.Text = "Форма записи на индивидуальное посещение";
             this.Load += new System.EventHandler(this.PersonalVisit_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PersonalVisit_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PersonalVisit_MouseMove);
@@ -493,7 +512,6 @@
         private System.Windows.Forms.DateTimePicker dateFrom;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button submitButton;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox surnameField;
         private System.Windows.Forms.TextBox nameField;
         private System.Windows.Forms.TextBox patronymicField;

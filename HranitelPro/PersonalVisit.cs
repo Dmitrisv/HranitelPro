@@ -166,6 +166,9 @@ namespace HranitelPro
             dateTo.MinDate = DateTime.Now.AddDays(1);
             dateTo.MaxDate = DateTime.Now.AddDays(15);
             #endregion
+            #region Список целей посещения
+            goalList.Items.Add("Ознакомительная экскурсия");
+            #endregion
         }
 
         private void goalList_SelectedIndexChanged(object sender, EventArgs e)
@@ -258,6 +261,166 @@ namespace HranitelPro
             {
                 comboBox1.Items.Add(reader["fio"].ToString());
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dateTo_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateFrom_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void surnameField_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nameField_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void patronymicField_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void emailField_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void organizationField_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void purposeField_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void birthDateField_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void phoneField_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void numberField_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void serialField_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }
