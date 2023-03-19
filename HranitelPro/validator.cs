@@ -59,6 +59,26 @@ namespace HranitelPro
             string pattern = @"^\+\d \(\d{3}\) \d{3}-\d{2}-\d{2}$";
             return Regex.IsMatch(phoneNumber, pattern);
         }
+
+        public static bool date(DateTime dateStr)
+        {
+
+
+            // Вычисляем возраст
+            int age = DateTime.Today.Year - dateStr.Year;
+            if (DateTime.Today < dateStr.AddYears(age))
+            {
+                age--;
+            }
+
+            // Проверяем, что возраст больше или равен 16
+            if (age < 16)
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 
 
