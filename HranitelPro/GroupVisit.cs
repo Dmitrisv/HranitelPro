@@ -3,9 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
@@ -35,19 +37,21 @@ namespace HranitelPro
                     //string login = item.login;
                     //string password = item.password;
                     string date_of_birth = item.date_of_birth;
+                    string group_name = item.group_name;
 
                     DataBase dataBase = new DataBase();
                     dataBase.openConnection();
                     MySqlDataAdapter adapter = new MySqlDataAdapter();
-                    adapter.InsertCommand = new MySqlCommand("INSERT INTO visit_personal (fio, phone_number, email,date_of_birth,passport_data, login, password, purpose) VALUES (@fio, @phone, @email,@birthday,@passport_data, @login, @password, @purpose)", dataBase.getConnection());
+                    adapter.InsertCommand = new MySqlCommand("INSERT INTO visit_group (fio, phone_number, email,date_of_birth,passport_data, login, password, purpose, group_name) VALUES (@fio, @phone, @email,@birthday,@passport_data, @login, @password, @purpose, @group_name)", dataBase.getConnection());
                     adapter.InsertCommand.Parameters.AddWithValue("@fio", fio);
                     adapter.InsertCommand.Parameters.AddWithValue("@phone", phone);
                     adapter.InsertCommand.Parameters.AddWithValue("@birthday", date_of_birth);
                     adapter.InsertCommand.Parameters.AddWithValue("@email", email);
                     adapter.InsertCommand.Parameters.AddWithValue("@passport_data", passport_data);
-                    //adapter.InsertCommand.Parameters.AddWithValue("@login", login);
-                    //adapter.InsertCommand.Parameters.AddWithValue("@password", password);
+                    adapter.InsertCommand.Parameters.AddWithValue("@login", "-");
+                    adapter.InsertCommand.Parameters.AddWithValue("@password", "-");
                     adapter.InsertCommand.Parameters.AddWithValue("@purpose", purpose);
+                    adapter.InsertCommand.Parameters.AddWithValue("@group_name", group_name);
                     adapter.InsertCommand.ExecuteNonQuery();
                     //+7 (000) 000-0000
                     dataBase.closeConnection();
@@ -136,19 +140,18 @@ namespace HranitelPro
             #region Список целей посещения
             goalList.Items.Add("Ознакомительная экскурсия");
             #endregion
-            
+
         }
 
 
         private void button2_Click(object sender, EventArgs e)
         {
+            string groupName = "";
             string surname = surnameField.Text;
             string name = nameField.Text;
             string patronymic = patronymicField.Text;
             string phone = phoneField.Text;
             string email = emailField.Text;
-            string organization = organizationField.Text;
-            string text = purposeField.Text;
             DateTime birthday = birthDateField.Value;
             string serial = serialField.Text;
             string number = numberField.Text;
@@ -189,7 +192,7 @@ namespace HranitelPro
 
                 #region Создание Purpose
                 MySqlCommand query = new MySqlCommand("SELECT employee_code FROM subdivision_employee WHERE fio = @fio", dataBase.getConnection());
-                query.Parameters.AddWithValue("@fio", comboBox1.SelectedValue.ToString());
+                query.Parameters.AddWithValue("@fio", comboBox1.SelectedText);
 
 
                 // Открытие подключения
@@ -201,6 +204,61 @@ namespace HranitelPro
                 purpose = dateFrom.Value.Day.ToString() + "/" + dateFrom.Value.Month.ToString() + "/" + dateFrom.Value.Year.ToString() + "_" + subdivisionEmployeeCode;
                 dataBase.closeConnection();
                 #endregion
+                #region Создание group_name
+                string input = comboBox1.SelectedText;
+                string pattern2 = @"^\w+"; // Первое слово начинается с начала строки и состоит из одного или более символов слова (буквы, цифры, символ подчеркивания)
+
+                Match match2 = Regex.Match(input, pattern2);
+
+
+                dataBase.openConnection();
+                string sql = "SELECT group_name FROM visit_group ORDER BY id DESC LIMIT 1;";
+                MySqlCommand command = new MySqlCommand(sql, dataBase.getConnection());
+
+                // выполнение запроса и получение результатов
+                MySqlDataReader reader2 = command.ExecuteReader();
+                string groupNumber = "";
+
+                // проверка наличия данных
+                if (reader2.HasRows)
+                {
+                    // чтение первой строки
+                    reader2.Read();
+
+                    // получение числа из ГР2
+                    groupNumber = reader2.GetString(0); 
+                    string pattern = @"ГР(\d+)";
+                    var match = Regex.Match(groupNumber, pattern);
+                    int result = 0;
+                    if (match.Groups[1].Value == "")
+                        result = 0;
+                    else
+                        result = Convert.ToInt32(match.Groups[1].Value);
+
+                    groupName = dateFrom.Value.Day.ToString() + "/" + dateFrom.Value.Month.ToString() + "/" + dateFrom.Value.Year.ToString() + "_Производство_" + match2.Value + "_" + subdivisionEmployeeCode + "_ГР" + (result + 1);
+
+
+                    dataBase.closeConnection();
+
+                }
+                else
+                {
+                    string pattern = @"ГР(\d+)";
+                    var match = Regex.Match(groupNumber, pattern);
+                    int result = 0;
+                    if (match.Groups[1].Value == "")
+                        result = 0;
+                    else
+                        result = Convert.ToInt32(match.Groups[1].Value);
+
+                    groupName = dateFrom.Value.Day.ToString() + "/" + dateFrom.Value.Month.ToString() + "/" + dateFrom.Value.Year.ToString() + "_Производство_" + match2.Value + "_" + subdivisionEmployeeCode + "_ГР" + (result + 1);
+
+                }
+
+
+
+                #endregion
+
 
                 visitor.Add(new Visitor
                 {
@@ -212,6 +270,7 @@ namespace HranitelPro
                     passport_data = passport_data,
                     phone_number = phone,
                     purpose = purpose,
+                    group_name = groupName
                 });
                 id++;
                 AppendTable(visitor);
@@ -230,20 +289,23 @@ namespace HranitelPro
             {
                 var idText = new Label();
                 idText.Text = visitor[i].id.ToString();
-                panel4.Controls.Add(idText);
+                panel5.Controls.Add(idText);
                 idText.Location = new Point(-3, (0 + 18 * i));
                 idText.Width = 10;
+                idText.Height = 13;
 
                 var fioText = new Label();
                 fioText.Text = visitor[i].fio;
-                panel4.Controls.Add(fioText);
+                panel5.Controls.Add(fioText);
                 fioText.Location = new Point(22, (0 + 18 * i));
                 fioText.Width = 180;
+                fioText.Height = 13;
 
                 var contactText = new Label();
                 contactText.Text = visitor[i].contacts;
-                panel4.Controls.Add(contactText);
+                panel5.Controls.Add(contactText);
                 contactText.Location = new Point(204, (0 + 18 * i));
+                contactText.Height = 13;
             }
         }
 

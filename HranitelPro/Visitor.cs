@@ -17,6 +17,7 @@ namespace HranitelPro
         public string login { get; set; }
         public string password { get; set; }
         public string purpose { get; set; }
+        public string group_name { get; set; }
         public string contacts { get; set; }
     }
 }
