@@ -57,7 +57,6 @@
             this.purposeField = new System.Windows.Forms.TextBox();
             this.organizationField = new System.Windows.Forms.TextBox();
             this.emailField = new System.Windows.Forms.TextBox();
-            this.phoneField = new System.Windows.Forms.TextBox();
             this.patronymicField = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.subdivisionFioField = new System.Windows.Forms.TextBox();
@@ -69,6 +68,7 @@
             this.surnameField = new System.Windows.Forms.TextBox();
             this.submitButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.phoneField = new System.Windows.Forms.MaskedTextBox();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -326,13 +326,6 @@
             this.emailField.Size = new System.Drawing.Size(132, 20);
             this.emailField.TabIndex = 8;
             // 
-            // phoneField
-            // 
-            this.phoneField.Location = new System.Drawing.Point(88, 103);
-            this.phoneField.Name = "phoneField";
-            this.phoneField.Size = new System.Drawing.Size(132, 20);
-            this.phoneField.TabIndex = 7;
-            // 
             // patronymicField
             // 
             this.patronymicField.Location = new System.Drawing.Point(88, 77);
@@ -375,6 +368,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.phoneField);
             this.panel3.Controls.Add(this.uploadImgBtn);
             this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Controls.Add(this.label18);
@@ -393,7 +387,6 @@
             this.panel3.Controls.Add(this.purposeField);
             this.panel3.Controls.Add(this.organizationField);
             this.panel3.Controls.Add(this.emailField);
-            this.panel3.Controls.Add(this.phoneField);
             this.panel3.Controls.Add(this.patronymicField);
             this.panel3.Controls.Add(this.nameField);
             this.panel3.Controls.Add(this.surnameField);
@@ -445,6 +438,14 @@
             this.button2.Text = "X";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // phoneField
+            // 
+            this.phoneField.Location = new System.Drawing.Point(88, 103);
+            this.phoneField.Mask = "+7 (###) ###-##-##";
+            this.phoneField.Name = "phoneField";
+            this.phoneField.Size = new System.Drawing.Size(132, 20);
+            this.phoneField.TabIndex = 27;
             // 
             // PersonalVisit
             // 
@@ -508,7 +509,6 @@
         private System.Windows.Forms.TextBox purposeField;
         private System.Windows.Forms.TextBox organizationField;
         private System.Windows.Forms.TextBox emailField;
-        private System.Windows.Forms.TextBox phoneField;
         private System.Windows.Forms.TextBox patronymicField;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox subdivisionFioField;
@@ -520,5 +520,6 @@
         private System.Windows.Forms.Button uploadImgBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.MaskedTextBox phoneField;
     }
 }
