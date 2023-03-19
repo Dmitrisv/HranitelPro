@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -58,7 +59,7 @@ namespace HranitelPro
                     adapter.InsertCommand = new MySqlCommand("INSERT INTO visit_personal (fio, phone_number, email,date_of_birth,passport_data, login, password, purpose) VALUES (@fio, @phone, @email,@birthday,@passport_data, @login, @password, @purpose)", dataBase.getConnection());
                     adapter.InsertCommand.Parameters.AddWithValue("@fio", fio);
                     adapter.InsertCommand.Parameters.AddWithValue("@phone", phone);
-                    adapter.InsertCommand.Parameters.AddWithValue("@birthday", birthday);
+                    adapter.InsertCommand.Parameters.AddWithValue("@birthday", birthDateField.Text);
                     adapter.InsertCommand.Parameters.AddWithValue("@email", email);
                     adapter.InsertCommand.Parameters.AddWithValue("@passport_data", passport_data);
                     adapter.InsertCommand.Parameters.AddWithValue("@login", HranitelPro.Properties.Settings.Default.UserName);
@@ -99,6 +100,46 @@ namespace HranitelPro
         {
             this.Close();
 
+        }
+
+        private void subdivisionList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PersonalVisit_Load(object sender, EventArgs e)
+        {
+            #region Загрузка списка подразделений
+            DataBase dataBase = new DataBase();
+
+            string query = "SELECT name FROM subdivision";
+
+            // Открытие подключения
+            dataBase.openConnection();
+            MySqlCommand command = new MySqlCommand(query, dataBase.getConnection());
+            // Выполнение запроса и получение результатов
+            MySqlDataReader reader = command.ExecuteReader();
+
+            // Добавление результатов в ListBox
+            while (reader.Read())
+            {
+                subdivisionList.Items.Add(reader["name"].ToString());
+            }
+
+            // Закрытие чтения
+            reader.Close();
+            #endregion
+            #region Определение дат для оформление пропуска
+            dateFrom.MinDate = DateTime.Now.AddDays(1);
+            dateFrom.MaxDate = DateTime.Now.AddDays(15);
+            dateTo.MinDate = DateTime.Now.AddDays(1);
+            dateTo.MaxDate = DateTime.Now.AddDays(15);
+            #endregion
+        }
+
+        private void goalList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //goalList.Items.Add()
         }
     }
 }

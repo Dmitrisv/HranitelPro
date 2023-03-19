@@ -38,12 +38,10 @@
             this.clearForm = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.goalList = new System.Windows.Forms.ListBox();
             this.dateTo = new System.Windows.Forms.DateTimePicker();
             this.dateFrom = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
             this.subdivisionFioField = new System.Windows.Forms.TextBox();
-            this.subdivisionList = new System.Windows.Forms.ListBox();
             this.submitButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.surnameField = new System.Windows.Forms.TextBox();
@@ -52,8 +50,6 @@
             this.emailField = new System.Windows.Forms.TextBox();
             this.organizationField = new System.Windows.Forms.TextBox();
             this.purposeField = new System.Windows.Forms.TextBox();
-            this.serialField = new System.Windows.Forms.TextBox();
-            this.numberField = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -69,8 +65,10 @@
             this.uploadImgBtn = new System.Windows.Forms.Button();
             this.phoneField = new System.Windows.Forms.MaskedTextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.serialField = new System.Windows.Forms.MaskedTextBox();
+            this.numberField = new System.Windows.Forms.MaskedTextBox();
+            this.subdivisionList = new System.Windows.Forms.ComboBox();
+            this.goalList = new System.Windows.Forms.ComboBox();
             this.panel5.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -161,25 +159,17 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.goalList);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.goalList);
             this.panel1.Controls.Add(this.dateTo);
             this.panel1.Controls.Add(this.dateFrom);
             this.panel1.Location = new System.Drawing.Point(25, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(315, 178);
             this.panel1.TabIndex = 8;
-            // 
-            // goalList
-            // 
-            this.goalList.FormattingEnabled = true;
-            this.goalList.Location = new System.Drawing.Point(20, 135);
-            this.goalList.Name = "goalList";
-            this.goalList.Size = new System.Drawing.Size(272, 17);
-            this.goalList.TabIndex = 2;
             // 
             // dateTo
             // 
@@ -192,16 +182,17 @@
             // 
             this.dateFrom.CustomFormat = "";
             this.dateFrom.Location = new System.Drawing.Point(35, 70);
+            this.dateFrom.MinDate = new System.DateTime(2023, 3, 19, 0, 0, 0, 0);
             this.dateFrom.Name = "dateFrom";
             this.dateFrom.Size = new System.Drawing.Size(116, 20);
             this.dateFrom.TabIndex = 0;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.subdivisionList);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.subdivisionFioField);
-            this.panel2.Controls.Add(this.subdivisionList);
             this.panel2.Location = new System.Drawing.Point(350, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(341, 178);
@@ -213,14 +204,6 @@
             this.subdivisionFioField.Name = "subdivisionFioField";
             this.subdivisionFioField.Size = new System.Drawing.Size(279, 20);
             this.subdivisionFioField.TabIndex = 3;
-            // 
-            // subdivisionList
-            // 
-            this.subdivisionList.FormattingEnabled = true;
-            this.subdivisionList.Location = new System.Drawing.Point(20, 54);
-            this.subdivisionList.Name = "subdivisionList";
-            this.subdivisionList.Size = new System.Drawing.Size(307, 17);
-            this.subdivisionList.TabIndex = 2;
             // 
             // submitButton
             // 
@@ -283,20 +266,6 @@
             this.purposeField.Name = "purposeField";
             this.purposeField.Size = new System.Drawing.Size(132, 20);
             this.purposeField.TabIndex = 10;
-            // 
-            // serialField
-            // 
-            this.serialField.Location = new System.Drawing.Point(325, 103);
-            this.serialField.Name = "serialField";
-            this.serialField.Size = new System.Drawing.Size(132, 20);
-            this.serialField.TabIndex = 11;
-            // 
-            // numberField
-            // 
-            this.numberField.Location = new System.Drawing.Point(325, 129);
-            this.numberField.Name = "numberField";
-            this.numberField.Size = new System.Drawing.Size(132, 20);
-            this.numberField.TabIndex = 12;
             // 
             // label7
             // 
@@ -381,10 +350,12 @@
             // 
             // birthDateField
             // 
+            this.birthDateField.CustomFormat = "dd/MM/yyyy";
             this.birthDateField.Location = new System.Drawing.Point(325, 80);
+            this.birthDateField.MinDate = new System.DateTime(1914, 1, 1, 0, 0, 0, 0);
             this.birthDateField.Name = "birthDateField";
             this.birthDateField.Size = new System.Drawing.Size(132, 20);
-            this.birthDateField.TabIndex = 13;
+            this.birthDateField.TabIndex = 11;
             // 
             // label18
             // 
@@ -418,10 +389,12 @@
             this.phoneField.Mask = "+7 (###) ###-##-##";
             this.phoneField.Name = "phoneField";
             this.phoneField.Size = new System.Drawing.Size(132, 20);
-            this.phoneField.TabIndex = 27;
+            this.phoneField.TabIndex = 7;
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.numberField);
+            this.panel3.Controls.Add(this.serialField);
             this.panel3.Controls.Add(this.phoneField);
             this.panel3.Controls.Add(this.uploadImgBtn);
             this.panel3.Controls.Add(this.pictureBox1);
@@ -436,8 +409,6 @@
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.numberField);
-            this.panel3.Controls.Add(this.serialField);
             this.panel3.Controls.Add(this.purposeField);
             this.panel3.Controls.Add(this.organizationField);
             this.panel3.Controls.Add(this.emailField);
@@ -449,27 +420,44 @@
             this.panel3.Size = new System.Drawing.Size(666, 188);
             this.panel3.TabIndex = 10;
             // 
-            // textBox1
+            // serialField
             // 
-            this.textBox1.Location = new System.Drawing.Point(325, 390);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 20);
-            this.textBox1.TabIndex = 16;
+            this.serialField.Location = new System.Drawing.Point(325, 105);
+            this.serialField.Mask = "####";
+            this.serialField.Name = "serialField";
+            this.serialField.Size = new System.Drawing.Size(132, 20);
+            this.serialField.TabIndex = 12;
             // 
-            // textBox2
+            // numberField
             // 
-            this.textBox2.Location = new System.Drawing.Point(463, 390);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(132, 20);
-            this.textBox2.TabIndex = 17;
+            this.numberField.Location = new System.Drawing.Point(325, 129);
+            this.numberField.Mask = "######";
+            this.numberField.Name = "numberField";
+            this.numberField.Size = new System.Drawing.Size(132, 20);
+            this.numberField.TabIndex = 13;
+            // 
+            // subdivisionList
+            // 
+            this.subdivisionList.FormattingEnabled = true;
+            this.subdivisionList.Location = new System.Drawing.Point(20, 44);
+            this.subdivisionList.Name = "subdivisionList";
+            this.subdivisionList.Size = new System.Drawing.Size(308, 21);
+            this.subdivisionList.TabIndex = 9;
+            // 
+            // goalList
+            // 
+            this.goalList.FormattingEnabled = true;
+            this.goalList.Location = new System.Drawing.Point(35, 137);
+            this.goalList.Name = "goalList";
+            this.goalList.Size = new System.Drawing.Size(254, 21);
+            this.goalList.TabIndex = 10;
+            this.goalList.SelectedIndexChanged += new System.EventHandler(this.goalList_SelectedIndexChanged);
             // 
             // PersonalVisit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(733, 501);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.clearForm);
@@ -480,6 +468,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PersonalVisit";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.PersonalVisit_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PersonalVisit_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PersonalVisit_MouseMove);
             this.panel5.ResumeLayout(false);
@@ -508,12 +497,10 @@
         private System.Windows.Forms.Label clearForm;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ListBox goalList;
         private System.Windows.Forms.DateTimePicker dateTo;
         private System.Windows.Forms.DateTimePicker dateFrom;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox subdivisionFioField;
-        private System.Windows.Forms.ListBox subdivisionList;
         private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox surnameField;
@@ -522,8 +509,6 @@
         private System.Windows.Forms.TextBox emailField;
         private System.Windows.Forms.TextBox organizationField;
         private System.Windows.Forms.TextBox purposeField;
-        private System.Windows.Forms.TextBox serialField;
-        private System.Windows.Forms.TextBox numberField;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
@@ -539,7 +524,9 @@
         private System.Windows.Forms.Button uploadImgBtn;
         private System.Windows.Forms.MaskedTextBox phoneField;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.MaskedTextBox numberField;
+        private System.Windows.Forms.MaskedTextBox serialField;
+        private System.Windows.Forms.ComboBox subdivisionList;
+        private System.Windows.Forms.ComboBox goalList;
     }
 }
