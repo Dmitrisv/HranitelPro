@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace HranitelPro
 {
@@ -130,6 +127,9 @@ namespace HranitelPro
             // все проверки пройдены успешно
             return true;
         }
+        public static bool subdivision(string subdivision) => !string.IsNullOrEmpty(subdivision);
+        public static bool subdivision_employee(string subdivision_employee) => !string.IsNullOrEmpty(subdivision_employee);
+
     }
 
 }

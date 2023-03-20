@@ -1,16 +1,9 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 
 namespace HranitelPro
 {
@@ -165,6 +158,8 @@ namespace HranitelPro
             bool isSerialValid = validator.serial(serial);
             bool isNumberValid = validator.number(number);
             bool isEmailVaild = validator.email(email);
+            bool isSubDivisonValid = validator.subdivision(subdivisionList.SelectedItem.ToString());
+            bool isSubDivisionEmployeeValid = validator.subdivision_employee(comboBox1.SelectedItem.ToString());
 
             if (!isPhoneValid)
             {
@@ -185,6 +180,14 @@ namespace HranitelPro
             else if (!isEmailVaild)
             {
                 MessageBox.Show("Неверный формат почты");
+            }
+            else if (!isSubDivisionEmployeeValid)
+            {
+                MessageBox.Show("Не указан сотрудник подразделения");
+            }
+            else if (!isSubDivisonValid)
+            {
+                MessageBox.Show("Не указано подразделение");
             }
             else
             {
