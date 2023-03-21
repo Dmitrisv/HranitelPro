@@ -28,5 +28,26 @@ namespace HranitelPro
             this.Close();
             personalVisit.Show();
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+            PersonalVisit personalVisit = new PersonalVisit();
+            this.Close();
+            personalVisit.Show();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+            GroupVisit groupVisit = new GroupVisit();
+            this.Close();
+            groupVisit.Show();
+        }
     }
 }

@@ -2,10 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using System.Xml;
 
 namespace HranitelPro
 {
@@ -231,7 +229,7 @@ namespace HranitelPro
                     reader2.Read();
 
                     // получение числа из ГР2
-                    groupNumber = reader2.GetString(0);
+                    groupNumber = reader2.GetString(0); 
                     string pattern = @"ГР(\d+)";
                     var match = Regex.Match(groupNumber, pattern);
                     int result = 0;
@@ -346,62 +344,6 @@ namespace HranitelPro
         private void panel5_Paint(object sender, PaintEventArgs e)
         {
 
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openPDF = new OpenFileDialog();
-            openPDF.Multiselect = false;
-            openPDF.Filter = "Файлы формата xlsx (*.xlsx;)|*.xlsx;";
-            openPDF.Title = "Выберите файл";
-
-            if (openPDF.ShowDialog() == DialogResult.OK)
-            {
-                if (openPDF.FileName != null)
-                {
-                    var ms = new MemoryStream();
-                    var file = openPDF.OpenFile().CopyToAsync(ms);
-                    string sheetName = "Лист1";
-                    string cellRange = "A2:I"; // Область ячеек с данными
-                    string namespaceUri = "http://schemas.openxmlformats.org/spreadsheetml/2006/main";
-                    string rootElement = "worksheet";
-
-                    XmlDocument xmlDocument = new XmlDocument();
-                    xmlDocument.Load(ms);
-
-                    XmlNamespaceManager namespaceManager = new XmlNamespaceManager(xmlDocument.NameTable);
-                    namespaceManager.AddNamespace("ns", namespaceUri);
-
-                    XmlNodeList rows = xmlDocument.DocumentElement.SelectNodes("//ns:" + rootElement + "/ns:sheetData/ns:row", namespaceManager);
-
-                    foreach (XmlNode row in rows)
-                    {
-                        if (row.Attributes["r"].Value == "1")
-                        {
-                            // Пропускаем первую строку с заголовками
-                            continue;
-                        }
-
-                        XmlNodeList cells = row.SelectNodes("ns:c", namespaceManager);
-
-                        string fio = cells[0].InnerText;
-                        string phone = cells[1].InnerText;
-                        string email = cells[2].InnerText;
-                        DateTime birthdate = DateTime.FromOADate(double.Parse(cells[3].InnerText));
-                        string passport = cells[4].InnerText;
-                        string login = cells[5].InnerText;
-                        string password = cells[6].InnerText;
-                        string subdivision = cells[7].InnerText;
-                        string subdivisionEmployee = cells[8].InnerText;
-                        MessageBox.Show(fio);
-                        MessageBox.Show(phone);
-                        MessageBox.Show(email);
-                        MessageBox.Show(birthdate.ToString());
-                    }
-
-                    button1.Text = "Файл прикреплен";
-                }
-            }
         }
     }
 }

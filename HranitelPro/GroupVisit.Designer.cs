@@ -72,7 +72,6 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -439,7 +438,6 @@
             // panel4
             // 
             this.panel4.AutoScroll = true;
-            this.panel4.Controls.Add(this.button3);
             this.panel4.Controls.Add(this.label15);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.label20);
@@ -463,7 +461,7 @@
             // 
             this.panel5.Location = new System.Drawing.Point(18, 51);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(402, 91);
+            this.panel5.Size = new System.Drawing.Size(402, 117);
             this.panel5.TabIndex = 4;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
@@ -493,16 +491,6 @@
             this.label17.Size = new System.Drawing.Size(34, 13);
             this.label17.TabIndex = 1;
             this.label17.Text = "ФИО";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(268, 148);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(152, 23);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "Прикрепить файл";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // GroupVisit
             // 
@@ -579,6 +567,5 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button3;
     }
 }
