@@ -2,10 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using System.Xml;
 
 namespace HranitelPro
 {
@@ -243,7 +241,7 @@ namespace HranitelPro
                     reader2.Read();
 
                     // получение числа из ГР2
-                    groupNumber = reader2.GetString(0);
+                    groupNumber = reader2.GetString(0); 
                     string pattern = @"ГР(\d+)";
                     var match = Regex.Match(groupNumber, pattern);
                     int result = 0;
@@ -359,6 +357,7 @@ namespace HranitelPro
         {
 
         }
+<<<<<<< HEAD
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -416,5 +415,7 @@ namespace HranitelPro
             }
         }
 
+=======
+>>>>>>> c3c81ea03c2228859fc5d2e1baaf23bf3d64dda2
     }
 }

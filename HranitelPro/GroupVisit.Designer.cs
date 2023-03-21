@@ -442,8 +442,11 @@
             // panel4
             // 
             this.panel4.AutoScroll = true;
+<<<<<<< HEAD
             this.panel4.BackColor = System.Drawing.Color.Gainsboro;
             this.panel4.Controls.Add(this.button3);
+=======
+>>>>>>> c3c81ea03c2228859fc5d2e1baaf23bf3d64dda2
             this.panel4.Controls.Add(this.label15);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.label20);
@@ -477,7 +480,7 @@
             // 
             this.panel5.Location = new System.Drawing.Point(18, 51);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(402, 91);
+            this.panel5.Size = new System.Drawing.Size(402, 117);
             this.panel5.TabIndex = 4;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
@@ -583,6 +586,5 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button3;
     }
 }
