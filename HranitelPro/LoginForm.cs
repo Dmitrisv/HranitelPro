@@ -62,7 +62,7 @@ namespace HranitelPro
                     if (reader.HasRows)
                     {
                         MainForm mainForm = new MainForm();
-                        //Close();
+                        Hide();
                         mainForm.Show();
                     }
                     else

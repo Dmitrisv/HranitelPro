@@ -67,7 +67,6 @@
             this.subdivisionList = new System.Windows.Forms.ComboBox();
             this.submitButton = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
@@ -442,11 +441,6 @@
             // panel4
             // 
             this.panel4.AutoScroll = true;
-<<<<<<< HEAD
-            this.panel4.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel4.Controls.Add(this.button3);
-=======
->>>>>>> c3c81ea03c2228859fc5d2e1baaf23bf3d64dda2
             this.panel4.Controls.Add(this.label15);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.label20);
@@ -456,16 +450,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(454, 194);
             this.panel4.TabIndex = 18;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(268, 148);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(152, 23);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "Прикрепить файл";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label15
             // 
@@ -523,7 +507,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.submitButton);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "GroupVisit";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.GroupVisit_Load);

@@ -1,6 +1,8 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Drawing;
+using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace HranitelPro
@@ -22,6 +24,37 @@ namespace HranitelPro
                         {
                             ((TextBox)x2).Text = String.Empty;
                         }
+                        else if (x2 is MaskedTextBox)
+                        {
+                            ((MaskedTextBox)x2).Text = String.Empty;
+                        }
+                        else if (x2 is DateTimePicker)
+                        {
+                            ((DateTimePicker)x2).Text = "";
+                        }
+                        else if (x2 is ComboBox)
+                        {
+                            ((ComboBox)x2).Text = "";
+                        }
+                string imagePath = Path.Combine(Application.StartupPath, @"assets\Фотография2.png");
+                if (File.Exists(imagePath))
+                {
+                    pictureBox1.Image = null;
+                    // Получение потока данных для встроенного ресурса "image.jpg"
+                    Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("MyNamespace.image.jpg");
+
+                    // Чтение содержимого потока в массив байт
+                    byte[] buffer = new byte[stream.Length];
+                    stream.Read(buffer, 0, buffer.Length);
+
+                    // Использование массива байт, например, для сохранения файла на диск
+                    File.WriteAllBytes("image.jpg", buffer);
+                    pictureBox1.BackgroundImage = buffer;
+                }
+                else
+                {
+                    MessageBox.Show("Файл не найден: " + imagePath);
+                }
             }
         }
 
@@ -196,6 +229,7 @@ namespace HranitelPro
                     }
                     else
                     {
+                        pictureBox1.BackgroundImage = null;
                         pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                         pictureBox1.Image = new Bitmap(openFileDialog.FileName);
                     }

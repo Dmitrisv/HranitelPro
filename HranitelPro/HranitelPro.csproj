@@ -140,9 +140,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Групповое_посещение.png" />
-    <Content Include="Assets\Личное_посещение.png" />
-    <Content Include="Assets\Учетная_запись.png" />
+    <EmbeddedResource Include="Assets\Групповое_посещение.png" />
+    <EmbeddedResource Include="Assets\Личное_посещение.png" />
+    <EmbeddedResource Include="Assets\Учетная_запись.png" />
+    <EmbeddedResource Include="Assets\Фотография.png" />
+    <EmbeddedResource Include="Assets\Фотография2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

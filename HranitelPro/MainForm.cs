@@ -24,17 +24,11 @@ namespace HranitelPro
 
         private void label1_Click(object sender, EventArgs e)
         {
-            PersonalVisit personalVisit = new PersonalVisit();
-            this.Close();
-            personalVisit.Show();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
-            PersonalVisit personalVisit = new PersonalVisit();
-            this.Close();
-            personalVisit.Show();
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -45,8 +39,25 @@ namespace HranitelPro
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            PersonalVisit personalVisit = new PersonalVisit();
+            this.Hide();
+            personalVisit.ShowDialog();
+        }
+
+        private void panel2_Click(object sender, EventArgs e)
+        {
+
             GroupVisit groupVisit = new GroupVisit();
-            this.Close();
+            this.Hide();
             groupVisit.Show();
         }
     }
