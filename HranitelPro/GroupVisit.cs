@@ -75,6 +75,18 @@ namespace HranitelPro
                         {
                             ((TextBox)x2).Text = String.Empty;
                         }
+                        else if (x2 is MaskedTextBox)
+                        {
+                            ((MaskedTextBox)x2).Text = String.Empty;
+                        }
+                        else if (x2 is DateTimePicker)
+                        {
+                            ((DateTimePicker)x2).Text = "";
+                        }
+                        else if (x2 is ComboBox)
+                        {
+                            ((ComboBox)x2).Text = "";
+                        }
             }
         }
 
@@ -403,5 +415,6 @@ namespace HranitelPro
                 }
             }
         }
+
     }
 }

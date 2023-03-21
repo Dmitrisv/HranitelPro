@@ -67,12 +67,12 @@
             this.subdivisionList = new System.Windows.Forms.ComboBox();
             this.submitButton = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -211,7 +211,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(53, 448);
+            this.button1.Location = new System.Drawing.Point(53, 457);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(161, 23);
             this.button1.TabIndex = 15;
@@ -221,6 +221,7 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.Gainsboro;
             this.panel3.Controls.Add(this.button2);
             this.panel3.Controls.Add(this.numberField);
             this.panel3.Controls.Add(this.serialField);
@@ -242,9 +243,9 @@
             this.panel3.Controls.Add(this.patronymicField);
             this.panel3.Controls.Add(this.nameField);
             this.panel3.Controls.Add(this.surnameField);
-            this.panel3.Location = new System.Drawing.Point(33, 213);
+            this.panel3.Location = new System.Drawing.Point(33, 248);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(474, 188);
+            this.panel3.Size = new System.Drawing.Size(474, 194);
             this.panel3.TabIndex = 18;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
@@ -340,7 +341,7 @@
             // clearForm
             // 
             this.clearForm.AutoSize = true;
-            this.clearForm.Location = new System.Drawing.Point(688, 448);
+            this.clearForm.Location = new System.Drawing.Point(688, 462);
             this.clearForm.Name = "clearForm";
             this.clearForm.Size = new System.Drawing.Size(90, 13);
             this.clearForm.TabIndex = 20;
@@ -349,6 +350,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Gainsboro;
             this.panel1.Controls.Add(this.goalList);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
@@ -358,7 +360,7 @@
             this.panel1.Controls.Add(this.dateFrom);
             this.panel1.Location = new System.Drawing.Point(33, 29);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(474, 178);
+            this.panel1.Size = new System.Drawing.Size(328, 213);
             this.panel1.TabIndex = 16;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -398,13 +400,14 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.Gainsboro;
             this.panel2.Controls.Add(this.comboBox1);
             this.panel2.Controls.Add(this.subdivisionList);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Location = new System.Drawing.Point(529, 29);
+            this.panel2.Location = new System.Drawing.Point(367, 29);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(438, 178);
+            this.panel2.Size = new System.Drawing.Size(600, 213);
             this.panel2.TabIndex = 17;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -413,7 +416,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(20, 112);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(364, 21);
+            this.comboBox1.Size = new System.Drawing.Size(517, 21);
             this.comboBox1.TabIndex = 10;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -422,13 +425,13 @@
             this.subdivisionList.FormattingEnabled = true;
             this.subdivisionList.Location = new System.Drawing.Point(20, 44);
             this.subdivisionList.Name = "subdivisionList";
-            this.subdivisionList.Size = new System.Drawing.Size(400, 21);
+            this.subdivisionList.Size = new System.Drawing.Size(562, 21);
             this.subdivisionList.TabIndex = 9;
             this.subdivisionList.SelectedIndexChanged += new System.EventHandler(this.subdivisionList_SelectedIndexChanged);
             // 
             // submitButton
             // 
-            this.submitButton.Location = new System.Drawing.Point(797, 443);
+            this.submitButton.Location = new System.Drawing.Point(797, 457);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(170, 23);
             this.submitButton.TabIndex = 19;
@@ -439,16 +442,27 @@
             // panel4
             // 
             this.panel4.AutoScroll = true;
+            this.panel4.BackColor = System.Drawing.Color.Gainsboro;
             this.panel4.Controls.Add(this.button3);
             this.panel4.Controls.Add(this.label15);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.label20);
             this.panel4.Controls.Add(this.label19);
             this.panel4.Controls.Add(this.label17);
-            this.panel4.Location = new System.Drawing.Point(529, 213);
+            this.panel4.Location = new System.Drawing.Point(513, 248);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(438, 188);
+            this.panel4.Size = new System.Drawing.Size(454, 194);
             this.panel4.TabIndex = 18;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(268, 148);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(152, 23);
+            this.button3.TabIndex = 16;
+            this.button3.Text = "Прикрепить файл";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label15
             // 
@@ -494,21 +508,11 @@
             this.label17.TabIndex = 1;
             this.label17.Text = "ФИО";
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(268, 148);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(152, 23);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "Прикрепить файл";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // GroupVisit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1015, 501);
+            this.ClientSize = new System.Drawing.Size(1007, 501);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel3);
